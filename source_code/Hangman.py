@@ -1,8 +1,8 @@
 import colorama
-from extend import separate_chars
-from extend import list2str
-from extend import diffconverter
-from words import random_word
+from source_code.extend import separate_chars
+from source_code.extend import list2str
+from source_code.extend import diffconverter
+from source_code.words import random_word
 from math import ceil
 
 print(colorama.Fore.GREEN + """\nWelcome to:\n
