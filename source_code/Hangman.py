@@ -1,9 +1,11 @@
 import colorama
-from source_code.extend import separate_chars
-from source_code.extend import list2str
-from source_code.extend import diffconverter
-from source_code.words import random_word
+from extend import separate_chars
+from extend import list2str
+from extend import diffconverter
+from words import random_word
 from math import ceil
+
+colorama.init()
 
 print(colorama.Fore.GREEN + """\nWelcome to:\n
 ██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗
@@ -12,20 +14,50 @@ print(colorama.Fore.GREEN + """\nWelcome to:\n
 ██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║
 ██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║
 ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
-                        Creator: Alex J.\n""")
+                        Creator: Alex J.""")
+
+start_bool = True
 
 while True:
     input1 = random_word()
-    difficulty = diffconverter(int(input("Difficulty 1 - 3: ")))
+    while start_bool == True:
+        difficulty = input("\nDifficulty 1 - 3: ")
+        
+        try:
+            diffconverter(int(difficulty))
+        except:
+            print("Input conversion error, try a number?")
+        else:
+            difficulty = diffconverter(int(difficulty))
+
+            if difficulty <= 2 and difficulty >= 1:
+                print("Difficulty set.")
+                start_bool = False
+            else:
+                print("difficulty not in range.")
+
+
     listed_input = separate_chars(input1)
     fill_list = separate_chars("_" * len(listed_input))
     guess_amount = ceil(len(input1) * diffconverter(difficulty))
     while_count = 0
 
-    print("\nYou have " + str(guess_amount) + " guesses.\nOnly guess lowercase letters.\n")
+    print("\nYou have " + str(guess_amount) + " guesses.\nOnly guess lowercase letters.")
 
     for i in range(guess_amount):
-        guess = input("Guess: ")
+        guess_bool = True
+        
+        while guess_bool == True:
+            guess = input("\nGuess: ")
+            alphabet = "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z".split('/')
+
+            try:
+                alphabet.index(guess)
+            except:
+                print("Guess is not lowercase or is not a letter. try again.")
+            else:
+                guess_bool = False
+
         guess_num = 0
         while_count = while_count + 1
 
@@ -42,6 +74,7 @@ while True:
             a = " guess"
         else:
             a = " guesses"
+            
         if guess_num == 0:
             print("No " + guess + "'s found. ;w;  " + str(guess_amount - while_count) + a + " left.\n")
 
