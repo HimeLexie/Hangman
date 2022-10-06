@@ -31,7 +31,7 @@ while True:
             difficulty = diffconverter(int(difficulty))
 
             if difficulty <= 2 and difficulty >= 1:
-                print("Difficulty set.")
+                print("\nDifficulty set.\nWord set.\nHave fun!")
                 start_bool = False
             else:
                 print("difficulty not in range.")
@@ -42,19 +42,20 @@ while True:
     guess_amount = ceil(len(input1) * diffconverter(difficulty))
     while_count = 0
 
-    print("\nYou have " + str(guess_amount) + " guesses.\nOnly guess lowercase letters.")
+    print("\nYou have " + str(guess_amount) + " guesses.")
 
     for i in range(guess_amount):
         guess_bool = True
         
         while guess_bool == True:
-            guess = input("\nGuess: ")
+            guess_input = input("\nGuess: ")
+            guess = guess_input.lower()
             alphabet = "a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/p/q/r/s/t/u/v/w/x/y/z".split('/')
 
             try:
                 alphabet.index(guess)
             except:
-                print("Guess is not lowercase or is not a letter. try again.")
+                print("Guess is not a letter, try again.")
             else:
                 guess_bool = False
 
@@ -74,7 +75,7 @@ while True:
             a = " guess"
         else:
             a = " guesses"
-            
+
         if guess_num == 0:
             print("No " + guess + "'s found. ;w;  " + str(guess_amount - while_count) + a + " left.\n")
 
