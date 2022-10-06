@@ -96,7 +96,7 @@ while True:
     play = input("Would you like to play again (y/n)? ")
 
     if play == "n":
-        print()
+        print("Thanks for playing!")
         break
     elif play == "y":
         print("\nAlright, let's play again!\n")
