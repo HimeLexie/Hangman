@@ -59,7 +59,7 @@ while True:
             print("You lose. I am crying.\nWord was: " + input1 + "\n")
             break
     
-    play = input("Would you like to play again? ")
+    play = input("Would you like to play again (y/n)? ")
 
     if play == "n":
         print()
@@ -67,4 +67,4 @@ while True:
     elif play == "y":
         print("\nAlright, let's play again!\n")
     elif play != "y" and play != "n":
-        print("Not an y or n, continuing anyways.")
+        print("Not y or n, continuing anyways.")
