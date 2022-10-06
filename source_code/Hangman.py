@@ -99,7 +99,7 @@ while True:
     play = input("Would you like to play again (y/n)? ")
 
     if play == "n":
-        print("Thanks for playing!")
+        print("Thanks for playing!" + colorama.Fore.RESET)
         break
     elif play == "y":
         print("\nAlright, let's play again!\n")
