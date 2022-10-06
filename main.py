@@ -5,7 +5,7 @@ from extend import diffconverter
 from words import random_word
 from math import ceil
 
-print(colorama.Fore.GREEN + """\nWelcome to Hangman!\n
+print(colorama.Fore.GREEN + """\nWelcome to:\n
 ██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗
 ██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║
 ███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║
