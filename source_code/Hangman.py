@@ -19,7 +19,7 @@ print(colorama.Fore.GREEN + """\nWelcome to:\n
 start_bool = True
 
 while True:
-    input1 = random_word()
+    word = random_word()
     while start_bool == True:
         difficulty = input("\nDifficulty 1 - 3: ")
         
@@ -34,12 +34,12 @@ while True:
                 print("\nDifficulty set.\nWord set.\nHave fun!")
                 start_bool = False
             else:
-                print("difficulty not in range.")
+                print("Difficulty not in range.")
 
 
-    listed_input = separate_chars(input1)
+    listed_input = separate_chars(word)
     fill_list = separate_chars("_" * len(listed_input))
-    guess_amount = ceil(len(input1) * diffconverter(difficulty))
+    guess_amount = ceil(len(word) * diffconverter(difficulty))
     while_count = 0
 
     print("\nYou have " + str(guess_amount) + " guesses.")
@@ -55,7 +55,10 @@ while True:
             try:
                 alphabet.index(guess)
             except:
-                print("Guess is not a letter, try again.")
+                if len(guess) > 1:
+                    print("Guess has too many characters.")
+                else:
+                    print("Guess is not a letter, try again.")
             else:
                 guess_bool = False
 
@@ -85,12 +88,12 @@ while True:
         if guess_num > 1:
             print(str(guess_num) + " " + guess + "'s found! " + str(guess_amount - while_count) + a + " left.\n")
 
-        if fill_list == separate_chars(input1):
+        if fill_list == separate_chars(word):
             print("Congrats, you win!")
             break
 
         if guess_amount - while_count == 0:
-            print("You lose. I am crying.\nWord was: " + input1 + "\n")
+            print("You lose. I am crying.\nWord was: " + word + "\n")
             break
     
     play = input("Would you like to play again (y/n)? ")
