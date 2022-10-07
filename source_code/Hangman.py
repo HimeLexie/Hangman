@@ -1,20 +1,24 @@
-import colorama
 from extend import separate_chars
 from extend import list2str
 from extend import diffconverter
+from center import terminal_width
+from center import terminal_height
 from words import random_word
 from math import ceil
+from time import sleep
+import os
+import colorama
+
+os.system('cls')
+width = terminal_width()
+height = terminal_height()
+print(colorama.Fore.RED + "\n"*(ceil(height / 2)-15) + "Please use fullscreen for best experience.".center(width))
+sleep(5)
+os.system('cls')
 
 colorama.init()
 
-print(colorama.Fore.GREEN + """\nWelcome to:\n
-██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗
-██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║
-███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║
-██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║
-██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║
-╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
-                        Creator: Alex J.""")
+print(colorama.Fore.GREEN + "\n"*(ceil(height / 2)-4) + "Welcome to:".center(width) + "\n\n" + "██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗".center(width) + "\n" + "██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║".center(width) + "\n" + "███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║".center(width) + "\n" + "██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║".center(width) + "\n" + "██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║".center(width)  + "\n" + "╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝".center(width)  + "\n" + "Creator: Alex J.".center(width))
 
 start_bool = True
 
@@ -105,3 +109,4 @@ while True:
         print("\nAlright, let's play again!\n")
     elif play != "y" and play != "n":
         print("Not y or n, continuing anyways.")
+    os.system('cls')
