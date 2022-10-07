@@ -1,8 +1,8 @@
-import os
-import shlex
-import struct
-import platform
+from math import ceil
 import subprocess
+import platform
+import struct
+import shlex
 
 def get_terminal_size():
     """ getTerminalSize()
@@ -58,3 +58,13 @@ def terminal_width():
 
 def terminal_height():
     return get_terminal_size()[1]
+
+width = terminal_width()
+height = terminal_height()
+
+def center_print(text):
+    centered_text = text.center(terminal_width())
+    return centered_text
+
+def center_input(text):
+    middle = ceil(terminal_width() / 2) - ceil(len(text / 2))
