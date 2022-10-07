@@ -76,7 +76,7 @@ else:
         for i in range(guess_amount):
             guess_bool = True
             
-            sleep(1)
+            sleep(.25)
             while guess_bool == True:
                 guess_input = input("\n   Guess: ")
                 guess = guess_input.lower()
@@ -89,11 +89,13 @@ else:
                     if len(guess) > 1:
                         print("   Guess has too many characters.")
                         line_count = line_count + 1
+                        delete_last_line()
                     else:
                         print("   Guess is not a letter, try again.")
                         line_count = line_count + 1
                 else:
                     guess_bool = False
+
 
             guess_num = 0
             while_count = while_count + 1
@@ -131,7 +133,7 @@ else:
                 line_count = line_count + 3
                 break
             if (line_count - height) == 0 or 9 > (height - line_count) > 0:
-                sleep(2)
+                sleep(1)
                 os.system('cls')
                 print("""
     ██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗
@@ -139,21 +141,26 @@ else:
     ███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║
     ██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║
     ██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║
-    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝\n\n""")
+    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝\n""")
                 print("   " + list2str(fill_list))
-                line_count = 10
-        play = input("Would you like to play again (y/n)? ")
+                line_count = 9
+        play = input("   Would you like to play again (y/n)? ")
         line_count = line_count + 1
 
         if play == "n":
-            print("   Thanks for playing!" + colorama.Fore.RESET)
+            print("   Thanks for playing!")
+            sleep(5)
             line_count = line_count + 1
             break
         elif play == "y":
-            print("\n   Alright, let's play again!\n")
-            line_count = line_count + 3
+            delete_last_line()
+            print("   Alright, let's play again!")
+            sleep(5)
+            line_count = line_count + 1
         elif play != "y" and play != "n":
+            delete_last_line()
             print("   Not y or n, continuing anyways.")
+            sleep(5)
             line_count = line_count + 1
         os.system('cls')
         print("""
@@ -163,3 +170,5 @@ else:
     ██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║
     ██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║
     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝\n\n""")
+        line_count = 9
+print(colorama.Fore.RESET)
